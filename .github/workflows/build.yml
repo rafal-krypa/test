@@ -1,0 +1,24 @@
+name: build
+
+on:
+  push:
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: set up go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13
+        id: go
+
+      - name: check out
+        uses: actions/checkout@v2
+
+      - name: test
+        run: which go
+
+      - name: build
+        run: make all
